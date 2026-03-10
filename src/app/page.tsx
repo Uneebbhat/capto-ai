@@ -1,4 +1,13 @@
-import { ArrowRight, Github, Sparkles, Zap, LayoutGrid, LineChart } from "lucide-react";
+"use client"
+
+import {
+  ArrowRight,
+  Github,
+  Sparkles,
+  Zap,
+  LayoutGrid,
+  LineChart,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const platforms = ["LinkedIn", "Instagram", "Twitter / X"];
 const tones = ["Professional", "Casual", "Storytelling", "Educational"];
@@ -19,7 +29,11 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-950 to-black text-zinc-50">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,#1f2937_0,transparent_50%),radial-gradient(circle_at_bottom,#111827_0,transparent_55%)] opacity-70" />
 
-      <header className="border-b border-zinc-800/80 bg-black/40 backdrop-blur">
+      <motion.header className="border-b border-zinc-800/80 bg-black/40 backdrop-blur"
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div>
             <span className="text-sm font-semibold tracking-tight text-zinc-50">
@@ -67,13 +81,16 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main className="mx-auto flex max-w-6xl flex-col gap-20 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         {/* Hero Section */}
-        <section
+        <motion.section
           id="hero"
           className="flex flex-col items-center gap-10 text-center"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="space-y-6 flex flex-col items-center">
             <Badge className="flex w-fit items-center gap-2 rounded-full border border-sky-500/40 bg-zinc-900/80 px-3 py-1 text-[11px] font-medium text-sky-200 shadow-[0_0_24px_rgba(56,189,248,0.45)] mx-auto">
@@ -129,10 +146,13 @@ export default function Home() {
           </div>
 
           {/* Product Demo Section */}
-          <section
+          <motion.section
             id="product"
             className="relative"
             aria-label="Capto AI demo"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
             <div className="pointer-events-none absolute -inset-6 -z-10 rounded-3xl bg-linear-to-tr from-sky-500/30 via-indigo-500/20 to-transparent opacity-70 blur-3xl" />
             <Card className="relative overflow-hidden border-zinc-800/80 bg-zinc-950/70 shadow-[0_18px_80px_rgba(0,0,0,0.75)]">
@@ -263,11 +283,18 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-          </section>
-        </section>
+          </motion.section>
+        </motion.section>
 
         {/* Features Section */}
-        <section id="features" className="space-y-6">
+        <motion.section
+          id="features"
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
@@ -343,10 +370,17 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </motion.section>
 
         {/* How It Works Section */}
-        <section id="how-it-works" className="space-y-6">
+        <motion.section
+          id="how-it-works"
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
@@ -403,10 +437,17 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </motion.section>
 
         {/* Use Cases Section */}
-        <section id="use-cases" className="space-y-6">
+        <motion.section
+          id="use-cases"
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
@@ -467,10 +508,17 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </motion.section>
 
         {/* Future Vision Section */}
-        <section id="future" className="space-y-6">
+        <motion.section
+          id="future"
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
@@ -532,10 +580,16 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </motion.section>
 
         {/* Final CTA Section */}
-        <section className="space-y-6">
+        <motion.section
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <Card className="border-zinc-800/80 bg-linear-to-r from-zinc-950 via-zinc-950 to-zinc-900">
             <CardContent className="flex flex-col items-start gap-5 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-7">
               <div className="space-y-2">
@@ -558,7 +612,7 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
-        </section>
+        </motion.section>
       </main>
 
       {/* Footer */}
