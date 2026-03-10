@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const platforms = ["LinkedIn", "Instagram", "Twitter / X"];
 const tones = ["Professional", "Casual", "Storytelling", "Educational"];
@@ -15,49 +16,54 @@ const lengths = ["Short", "Medium", "Long"];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-950 to-black text-zinc-50">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_#1f2937_0,_transparent_50%),_radial-gradient(circle_at_bottom,_#111827_0,_transparent_55%)] opacity-70" />
+    <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-950 to-black text-zinc-50">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,#1f2937_0,transparent_50%),radial-gradient(circle_at_bottom,#111827_0,transparent_55%)] opacity-70" />
 
       <header className="border-b border-zinc-800/80 bg-black/40 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-500 via-sky-400 to-emerald-400 text-xs font-semibold text-black shadow-lg shadow-sky-500/40">
-              CA
-            </div>
+          <div>
             <span className="text-sm font-semibold tracking-tight text-zinc-50">
-              Capto AI
+              <Link href={"/"}>
+                Capto AI
+              </Link>
             </span>
           </div>
           <nav className="hidden items-center gap-6 text-xs font-medium text-zinc-400 sm:flex">
-            <a href="#product" className="transition-colors hover:text-zinc-100">
+            <Link href="#product" className="transition-colors hover:text-zinc-100">
               Product
-            </a>
-            <a href="#features" className="transition-colors hover:text-zinc-100">
+            </Link>
+            <Link href="#features" className="transition-colors hover:text-zinc-100">
               Features
-            </a>
-            <a href="#how-it-works" className="transition-colors hover:text-zinc-100">
+            </Link>
+            <Link href="#how-it-works" className="transition-colors hover:text-zinc-100">
               How it works
-            </a>
-            <a href="#use-cases" className="transition-colors hover:text-zinc-100">
+            </Link>
+            <Link href="#use-cases" className="transition-colors hover:text-zinc-100">
               Use cases
-            </a>
-            <a href="#future" className="transition-colors hover:text-zinc-100">
+            </Link>
+            <Link href="#future" className="transition-colors hover:text-zinc-100">
               Future vision
-            </a>
+            </Link>
           </nav>
           <div className="flex items-center gap-3">
             <Button
               variant="outline"
               size="sm"
-              className="hidden border-zinc-800 bg-transparent text-xs text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900 sm:inline-flex"
+              className="hidden border-zinc-800 bg-transparent text-xs text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900 sm:inline-flex hover:text-white"
+              asChild
             >
-              Log in
+              <Link href={"/login"}>
+                Log in
+              </Link>
             </Button>
             <Button
               size="sm"
               className="bg-zinc-50 px-4 text-xs font-semibold text-black shadow-[0_0_40px_rgba(250,250,250,0.35)] transition hover:bg-white"
+              asChild
             >
-              Get Started
+              <Link href={"/signup"}>
+                Get Started
+              </Link>
             </Button>
           </div>
         </div>
@@ -67,41 +73,46 @@ export default function Home() {
         {/* Hero Section */}
         <section
           id="hero"
-          className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center"
+          className="flex flex-col items-center gap-10 text-center"
         >
-          <div className="space-y-6">
-            <Badge className="flex w-fit items-center gap-2 rounded-full border border-sky-500/40 bg-zinc-900/80 px-3 py-1 text-[11px] font-medium text-sky-200 shadow-[0_0_24px_rgba(56,189,248,0.45)]">
+          <div className="space-y-6 flex flex-col items-center">
+            <Badge className="flex w-fit items-center gap-2 rounded-full border border-sky-500/40 bg-zinc-900/80 px-3 py-1 text-[11px] font-medium text-sky-200 shadow-[0_0_24px_rgba(56,189,248,0.45)] mx-auto">
               <Sparkles className="h-3 w-3" />
               Powered by Google Gemini
             </Badge>
             <div className="space-y-4">
               <h1 className="text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl lg:text-5xl">
                 Turn ideas into{" "}
-                <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-300 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-sky-400 via-indigo-400 to-emerald-300 bg-clip-text text-transparent">
                   high-performing social posts
                 </span>{" "}
                 with AI.
               </h1>
-              <p className="max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+              <p className="mx-auto max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
                 Capto AI helps creators, founders, developers, and personal brands
                 transform rough ideas into polished, platform-optimized social
                 content. Choose your platform, tone, and length—Capto handles the
                 rest.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button className="group inline-flex items-center gap-2 rounded-full bg-zinc-50 px-5 py-2 text-xs font-semibold text-black shadow-[0_0_40px_rgba(250,250,250,0.35)] transition hover:bg-white">
-                Start Generating Posts
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              <Button className="group inline-flex items-center gap-2 rounded-full bg-zinc-50 px-5 py-2 text-xs font-semibold text-black shadow-[0_0_40px_rgba(250,250,250,0.35)] transition hover:bg-white" asChild>
+                <Link href={"/create-post"}>
+                  Start Generating Posts
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
               </Button>
               <Button
                 variant="outline"
-                className="inline-flex items-center gap-2 rounded-full border-zinc-800 bg-zinc-950/60 px-5 py-2 text-xs font-medium text-zinc-200 hover:border-zinc-600 hover:bg-zinc-900"
+                className="inline-flex items-center gap-2 rounded-full border-zinc-800 bg-zinc-950/60 px-5 py-2 text-xs font-medium text-zinc-200 hover:border-zinc-600 hover:bg-zinc-900 hover:text-white"
+                asChild
               >
-                See How It Works
+                <Link href="#how-it-works">
+                  See How It Works
+                </Link>
               </Button>
             </div>
-            <div className="flex flex-wrap gap-4 text-[11px] text-zinc-500">
+            <div className="flex flex-wrap justify-center gap-4 text-[11px] text-zinc-500">
               <div className="flex items-center gap-2">
                 <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 <span>Built for creators, founders & devs</span>
@@ -123,9 +134,9 @@ export default function Home() {
             className="relative"
             aria-label="Capto AI demo"
           >
-            <div className="pointer-events-none absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-sky-500/30 via-indigo-500/20 to-transparent opacity-70 blur-3xl" />
+            <div className="pointer-events-none absolute -inset-6 -z-10 rounded-3xl bg-linear-to-tr from-sky-500/30 via-indigo-500/20 to-transparent opacity-70 blur-3xl" />
             <Card className="relative overflow-hidden border-zinc-800/80 bg-zinc-950/70 shadow-[0_18px_80px_rgba(0,0,0,0.75)]">
-              <div className="pointer-events-none absolute inset-x-10 top-0 h-24 bg-gradient-to-b from-white/5 via-white/[0.01] to-transparent opacity-80" />
+              <div className="pointer-events-none absolute inset-x-10 top-0 h-24 bg-linear-to-b from-white/5 via-white/1 to-transparent opacity-80" />
               <CardHeader className="border-b border-zinc-800/80 pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <CardTitle className="text-sm font-medium text-zinc-100">
@@ -156,16 +167,17 @@ export default function Home() {
                       <label className="font-medium text-zinc-300">Platform</label>
                       <div className="flex flex-wrap gap-1.5">
                         {platforms.map((platform) => (
-                          <button
+                          <Button
                             key={platform}
-                            className={`rounded-full border px-2.5 py-1 text-[11px] ${
-                              platform === "LinkedIn"
-                                ? "border-sky-500/70 bg-sky-500/10 text-sky-100"
-                                : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                            }`}
+                            type="button"
+                            variant="ghost"
+                            className={`rounded-full border px-2.5 py-1 text-[11px] min-w-0 h-auto ${platform === "LinkedIn"
+                              ? "border-sky-500/70 bg-sky-500/10 text-sky-100"
+                              : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
+                              }`}
                           >
                             {platform}
-                          </button>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -173,16 +185,17 @@ export default function Home() {
                       <label className="font-medium text-zinc-300">Tone</label>
                       <div className="flex flex-wrap gap-1.5">
                         {tones.map((tone) => (
-                          <button
+                          <Button
                             key={tone}
-                            className={`rounded-full border px-2.5 py-1 text-[11px] ${
-                              tone === "Storytelling"
-                                ? "border-indigo-400/80 bg-indigo-500/10 text-indigo-100"
-                                : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                            }`}
+                            type="button"
+                            variant="ghost"
+                            className={`rounded-full border px-2.5 py-1 text-[11px] min-w-0 h-auto ${tone === "Storytelling"
+                              ? "border-indigo-400/80 bg-indigo-500/10 text-indigo-100"
+                              : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
+                              }`}
                           >
                             {tone}
-                          </button>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -191,16 +204,17 @@ export default function Home() {
                     <label className="font-medium text-zinc-300">Length</label>
                     <div className="flex gap-1.5">
                       {lengths.map((length) => (
-                        <button
+                        <Button
                           key={length}
-                          className={`flex-1 rounded-full border px-2.5 py-1 ${
-                            length === "Medium"
-                              ? "border-emerald-400/80 bg-emerald-500/10 text-emerald-100"
-                              : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                          }`}
+                          type="button"
+                          variant="ghost"
+                          className={`flex-1 rounded-full border px-2.5 py-1 min-w-0 h-auto ${length === "Medium"
+                            ? "border-emerald-400/80 bg-emerald-500/10 text-emerald-100"
+                            : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
+                            }`}
                         >
                           {length}
-                        </button>
+                        </Button>
                       ))}
                     </div>
                   </div>
@@ -522,7 +536,7 @@ export default function Home() {
 
         {/* Final CTA Section */}
         <section className="space-y-6">
-          <Card className="border-zinc-800/80 bg-gradient-to-r from-zinc-950 via-zinc-950 to-zinc-900">
+          <Card className="border-zinc-800/80 bg-linear-to-r from-zinc-950 via-zinc-950 to-zinc-900">
             <CardContent className="flex flex-col items-start gap-5 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-7">
               <div className="space-y-2">
                 <h2 className="text-balance text-lg font-semibold tracking-tight text-zinc-50 sm:text-xl">
@@ -534,16 +548,12 @@ export default function Home() {
                   personalization.
                 </p>
               </div>
-              <div className="flex flex-shrink-0 flex-wrap gap-3">
-                <Button className="group inline-flex items-center gap-2 rounded-full bg-zinc-50 px-5 py-2 text-xs font-semibold text-black shadow-[0_0_40px_rgba(250,250,250,0.35)] hover:bg-white">
-                  Get Started
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="inline-flex items-center gap-2 rounded-full border-zinc-700 bg-zinc-950/60 px-4 py-2 text-[11px] font-medium text-zinc-200 hover:border-zinc-500 hover:bg-zinc-900"
-                >
-                  Join waitlist
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <Button className="group inline-flex items-center gap-2 rounded-full bg-zinc-50 px-5 py-2 text-xs font-semibold text-black shadow-[0_0_40px_rgba(250,250,250,0.35)] hover:bg-white" asChild>
+                  <Link href={"/signup"}>
+                    Get Started
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
                 </Button>
               </div>
             </CardContent>
@@ -561,33 +571,27 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <nav className="flex items-center gap-4">
-              <a
+              <Link
                 href="#product"
                 className="transition-colors hover:text-zinc-200"
               >
                 Product
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#features"
                 className="transition-colors hover:text-zinc-200"
               >
                 Features
-              </a>
-              <a
-                href="#future"
-                className="transition-colors hover:text-zinc-200"
-              >
-                Roadmap
-              </a>
-              <a
-                href="https://github.com/your-org/capto-ai"
+              </Link>
+              <Link
+                href="https://github.com/Uneebbhat/capto-ai.git"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 transition-colors hover:text-zinc-200"
               >
                 <Github className="h-3.5 w-3.5" />
                 <span>GitHub</span>
-              </a>
+              </Link>
             </nav>
             <span className="text-[10px] text-zinc-600">
               © {new Date().getFullYear()} Capto AI. All rights reserved.
