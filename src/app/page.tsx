@@ -93,7 +93,7 @@ export default function Home() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="space-y-6 flex flex-col items-center">
-            <Badge className="flex w-fit items-center gap-2 rounded-full border border-sky-500/40 bg-zinc-900/80 px-3 py-1 text-[11px] font-medium text-sky-200 shadow-[0_0_24px_rgba(56,189,248,0.45)] mx-auto">
+            <Badge className="flex w-fit items-center gap-2 rounded-full border border-sky-500/40 bg-zinc-900/80 p-4 text-[11px] font-medium text-sky-200 shadow-[0_0_24px_rgba(56,189,248,0.45)] mx-auto">
               <Sparkles className="h-3 w-3" />
               Powered by Google Gemini
             </Badge>
@@ -154,9 +154,14 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
-            <div className="pointer-events-none absolute -inset-6 -z-10 rounded-3xl bg-linear-to-tr from-sky-500/30 via-indigo-500/20 to-transparent opacity-70 blur-3xl" />
-            <Card className="relative overflow-hidden border-zinc-800/80 bg-zinc-950/70 shadow-[0_18px_80px_rgba(0,0,0,0.75)]">
+            {/* Blue Glow Background */}
+            <div className="pointer-events-none absolute -inset-7 -z-10 rounded-[2.5rem] bg-linear-to-r from-sky-400/60 via-blue-500/45 to-indigo-500/55 blur-[82px] opacity-100" />
+
+            <Card className="relative overflow-hidden rounded-3xl border border-sky-500/40 bg-zinc-950/80 shadow-[0_0_90px_24px_rgba(56,189,248,0.45),0_24px_100px_0_rgba(0,0,0,0.8)]">
+
+              {/* subtle internal highlight */}
               <div className="pointer-events-none absolute inset-x-10 top-0 h-24 bg-linear-to-b from-white/5 via-white/1 to-transparent opacity-80" />
+
               <CardHeader className="border-b border-zinc-800/80 pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <CardTitle className="text-sm font-medium text-zinc-100">
@@ -166,25 +171,32 @@ export default function Home() {
                     Live preview
                   </span>
                 </div>
+
                 <CardDescription className="text-xs text-zinc-400">
                   Describe your idea, pick where you&apos;re posting, and Capto AI
                   writes the rest.
                 </CardDescription>
               </CardHeader>
+
               <CardContent className="grid gap-5 pt-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+
+                {/* Left Panel */}
                 <div className="space-y-4">
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-medium text-zinc-300">
                       Post Idea
                     </label>
+
                     <div className="rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-xs text-zinc-200 shadow-inner shadow-zinc-900/80">
                       Share a behind-the-scenes story about building my SaaS and
                       invite people to join the beta.
                     </div>
                   </div>
+
                   <div className="grid gap-3 text-[11px] sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <label className="font-medium text-zinc-300">Platform</label>
+
                       <div className="flex flex-wrap gap-1.5">
                         {platforms.map((platform) => (
                           <Button
@@ -201,8 +213,10 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
+
                     <div className="space-y-1.5">
                       <label className="font-medium text-zinc-300">Tone</label>
+
                       <div className="flex flex-wrap gap-1.5">
                         {tones.map((tone) => (
                           <Button
@@ -220,8 +234,10 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+
                   <div className="space-y-1.5 text-[11px]">
                     <label className="font-medium text-zinc-300">Length</label>
+
                     <div className="flex gap-1.5">
                       {lengths.map((length) => (
                         <Button
@@ -238,32 +254,39 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <Button className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-xs font-semibold text-black shadow-[0_15px_50px_rgba(56,189,248,0.55)] hover:bg-sky-400">
+
+                  <Button className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-xs font-semibold text-black shadow-[0_0_10px_1px_rgba(56,189,248,0.15)] hover:bg-sky-400">
                     Generate optimized post
                     <Zap className="h-3.5 w-3.5" />
                   </Button>
                 </div>
 
+                {/* Right Panel */}
                 <div className="space-y-2 rounded-xl border border-zinc-800 bg-zinc-950/80 p-3 text-xs">
+
                   <div className="mb-1 flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-[11px] font-medium text-zinc-300">
                       <Sparkles className="h-3 w-3 text-sky-400" />
                       AI Output Preview
                     </span>
+
                     <span className="rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] text-zinc-500">
                       LinkedIn • Storytelling • Medium
                     </span>
                   </div>
+
                   <div className="space-y-2 rounded-lg bg-zinc-900/70 p-3 text-[11px] leading-relaxed text-zinc-200">
                     <p className="font-medium text-zinc-100">
                       From late-night commits to launch day nerves 🚀
                     </p>
+
                     <p>
                       For the past few months I&apos;ve been quietly building an
                       AI copilot for social media — a way to turn messy notes and
                       half-baked ideas into clear, platform-ready posts in
                       seconds.
                     </p>
+
                     <p>
                       We&apos;re finally opening the beta for{" "}
                       <span className="font-medium text-sky-300">Capto AI</span>.
@@ -271,15 +294,18 @@ export default function Home() {
                       more content without living in a blank editor, I&apos;d love
                       for you to try it.
                     </p>
+
                     <p className="text-zinc-400">
                       Comment &quot;CAPTO&quot; or send me a DM — I&apos;ll share
                       an early access link. ⚡
                     </p>
                   </div>
+
                   <div className="flex items-center justify-between pt-1 text-[10px] text-zinc-500">
                     <span>Optimized for reach & clarity</span>
                     <span>Gemini • 3.2ms draft time</span>
                   </div>
+
                 </div>
               </CardContent>
             </Card>
