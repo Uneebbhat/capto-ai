@@ -29,12 +29,14 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-950 to-black text-zinc-50">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,#1f2937_0,transparent_50%),radial-gradient(circle_at_bottom,#111827_0,transparent_55%)] opacity-70" />
 
-      <motion.header className="border-b border-zinc-800/80 bg-black/40 backdrop-blur"
+      <motion.header
+        className="border-b border-zinc-800/80 bg-black/40 backdrop-blur"
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          {/* Logo/Brand */}
           <div>
             <span className="text-sm font-semibold tracking-tight text-zinc-50">
               <Link href={"/"}>
@@ -42,6 +44,7 @@ export default function Home() {
               </Link>
             </span>
           </div>
+          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 text-xs font-medium text-zinc-400 sm:flex">
             <Link href="#product" className="transition-colors hover:text-zinc-100">
               Product
@@ -59,11 +62,12 @@ export default function Home() {
               Future vision
             </Link>
           </nav>
-          <div className="flex items-center gap-3">
+          {/* Desktop Auth Actions */}
+          <div className="hidden sm:flex items-center gap-3">
             <Button
               variant="outline"
               size="sm"
-              className="hidden border-zinc-800 bg-transparent text-xs text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900 sm:inline-flex hover:text-white"
+              className="border-zinc-800 bg-transparent text-xs text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
               asChild
             >
               <Link href={"/login"}>
@@ -79,6 +83,26 @@ export default function Home() {
                 Get Started
               </Link>
             </Button>
+          </div>
+          {/* Mobile Burger/Menu Button & Auth */}
+          <div className="flex flex-1 sm:hidden justify-end items-center gap-2">
+            {/* Navigation for mobile as a dropdown or modal */}
+            {/* Simple mobile menu using details/summary or can replace with menu button for actual dropdown later */}
+            <details className="relative">
+              <summary className="list-none cursor-pointer py-2 px-3 rounded-lg border border-zinc-700 bg-zinc-900/90 text-sm text-zinc-100">
+                Menu
+              </summary>
+              <div className="absolute right-0 mt-1 w-40 rounded-lg bg-zinc-950/95 border border-zinc-800 shadow-lg z-50 py-2">
+                <Link href="#product" className="block px-4 py-2 text-xs font-medium text-zinc-200 hover:bg-zinc-800/50">Product</Link>
+                <Link href="#features" className="block px-4 py-2 text-xs font-medium text-zinc-200 hover:bg-zinc-800/50">Features</Link>
+                <Link href="#how-it-works" className="block px-4 py-2 text-xs font-medium text-zinc-200 hover:bg-zinc-800/50">How it works</Link>
+                <Link href="#use-cases" className="block px-4 py-2 text-xs font-medium text-zinc-200 hover:bg-zinc-800/50">Use cases</Link>
+                <Link href="#future" className="block px-4 py-2 text-xs font-medium text-zinc-200 hover:bg-zinc-800/50">Future vision</Link>
+                <hr className="my-1 border-zinc-700" />
+                <Link href={"/login"} className="block px-4 py-2 text-xs font-medium text-sky-300 hover:bg-zinc-800/50">Log in</Link>
+                <Link href={"/signup"} className="block px-4 py-2 text-xs font-medium text-black bg-zinc-50 rounded mt-1 hover:bg-white">Get Started</Link>
+              </div>
+            </details>
           </div>
         </div>
       </motion.header>
@@ -154,158 +178,176 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
-            {/* Blue Glow Background */}
-            <div className="pointer-events-none absolute -inset-7 -z-10 rounded-[2.5rem] bg-linear-to-r from-sky-400/60 via-blue-500/45 to-indigo-500/55 blur-[82px] opacity-100" />
+            {/* Vibrant Glow Background */}
+            <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-gradient-to-br from-sky-400/60 via-indigo-400/50 to-emerald-400/70 blur-[100px] opacity-100" />
 
-            <Card className="relative overflow-hidden rounded-3xl border border-sky-500/40 bg-zinc-950/80 shadow-[0_0_90px_24px_rgba(56,189,248,0.45),0_24px_100px_0_rgba(0,0,0,0.8)]">
+            <Card className="relative overflow-visible rounded-3xl border-2 border-sky-500/50 bg-gradient-to-tr from-zinc-950/90 via-zinc-900/75 to-blue-950/80 shadow-[0_0_100px_38px_rgba(56,189,248,0.37),0_0px_140px_0_rgba(0,0,0,0.9)] ring-2 ring-sky-500/10">
 
-              {/* subtle internal highlight */}
-              <div className="pointer-events-none absolute inset-x-10 top-0 h-24 bg-linear-to-b from-white/5 via-white/1 to-transparent opacity-80" />
+              {/* Animated highlight */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-20 w-[85%] rounded-b-3xl bg-gradient-to-b from-white/10 via-white/5 to-transparent opacity-90 blur-md z-10" />
 
-              <CardHeader className="border-b border-zinc-800/80 pb-4">
+              <CardHeader className="border-b border-sky-400/10 pb-4 relative z-20">
                 <div className="mb-2 flex items-center justify-between">
-                  <CardTitle className="text-sm font-medium text-zinc-100">
+                  <CardTitle className="text-lg font-semibold tracking-tight text-zinc-100 flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-sky-400 animate-bounce-slow" />
                     Social Post Generator
                   </CardTitle>
-                  <span className="rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-zinc-400">
+                  <span className="rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-semibold text-sky-400 border border-sky-700/40">
                     Live preview
                   </span>
                 </div>
-
-                <CardDescription className="text-xs text-zinc-400">
-                  Describe your idea, pick where you&apos;re posting, and Capto AI
-                  writes the rest.
+                <CardDescription className="text-sm text-zinc-300">
+                  Share your idea, pick a platform, customize tone & length. Capto AI instantly generates your ready-to-post content.
                 </CardDescription>
               </CardHeader>
 
-              <CardContent className="grid gap-5 pt-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+              <CardContent className="grid gap-8 pt-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-10">
 
                 {/* Left Panel */}
-                <div className="space-y-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-medium text-zinc-300">
-                      Post Idea
-                    </label>
-
-                    <div className="rounded-xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 text-xs text-zinc-200 shadow-inner shadow-zinc-900/80">
-                      Share a behind-the-scenes story about building my SaaS and
-                      invite people to join the beta.
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 text-[11px] sm:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <label className="font-medium text-zinc-300">Platform</label>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {platforms.map((platform) => (
-                          <Button
-                            key={platform}
-                            type="button"
-                            variant="ghost"
-                            className={`rounded-full border px-2.5 py-1 text-[11px] min-w-0 h-auto ${platform === "LinkedIn"
-                              ? "border-sky-500/70 bg-sky-500/10 text-sky-100"
-                              : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                              }`}
-                          >
-                            {platform}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="font-medium text-zinc-300">Tone</label>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {tones.map((tone) => (
-                          <Button
-                            key={tone}
-                            type="button"
-                            variant="ghost"
-                            className={`rounded-full border px-2.5 py-1 text-[11px] min-w-0 h-auto ${tone === "Storytelling"
-                              ? "border-indigo-400/80 bg-indigo-500/10 text-indigo-100"
-                              : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                              }`}
-                          >
-                            {tone}
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5 text-[11px]">
-                    <label className="font-medium text-zinc-300">Length</label>
-
-                    <div className="flex gap-1.5">
-                      {lengths.map((length) => (
+                <div className="flex flex-col justify-between gap-5">
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium text-zinc-200 flex items-center gap-2">
+                        <Sparkles className="h-3 w-3 text-emerald-400" />
+                        Post Idea
+                      </label>
+                      <div className="flex items-start gap-2">
+                        <div className="rounded-xl border border-zinc-800 bg-zinc-950/70 px-3 py-2 text-sm text-zinc-200 shadow-inner shadow-zinc-900/80 flex-1 whitespace-pre-line">
+                          <span className="italic opacity-80">Share a behind-the-scenes story about building my SaaS and invite people to join the beta.</span>
+                        </div>
                         <Button
-                          key={length}
-                          type="button"
                           variant="ghost"
-                          className={`flex-1 rounded-full border px-2.5 py-1 min-w-0 h-auto ${length === "Medium"
-                            ? "border-emerald-400/80 bg-emerald-500/10 text-emerald-100"
-                            : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:border-zinc-500"
-                            }`}
+                          className="rounded-full border border-zinc-700/60 bg-zinc-900 hover:border-sky-400 text-xs px-2 py-1 text-sky-300"
+                          size="icon"
+                          tabIndex={-1}
                         >
-                          {length}
+                          <span role="img" aria-label="Edit">✏️</span>
                         </Button>
-                      ))}
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3 text-xs sm:grid-cols-2">
+                      {/* Platform Selection */}
+                      <div className="space-y-1.5">
+                        <label className="font-medium text-zinc-300 flex gap-1 items-center">
+                          <LayoutGrid className="h-3 w-3 text-sky-300" />
+                          Platform
+                        </label>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {platforms.map((platform) => (
+                            <Button
+                              key={platform}
+                              type="button"
+                              variant="ghost"
+                              className={`rounded-full border px-3 py-1.5 text-xs min-w-0 h-auto transition-all duration-200 ${platform === "LinkedIn"
+                                ? "border-sky-500 bg-sky-500/20 text-sky-100 shadow-[0_0_8px_1px_rgba(56,189,248,.16)]"
+                                : "border-zinc-700/70 bg-zinc-900 text-zinc-200 hover:border-sky-300 hover:bg-sky-400/10 hover:text-sky-100"
+                                }`}
+                            >
+                              {platform}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
+                      {/* Tone Selection */}
+                      <div className="space-y-1.5">
+                        <label className="font-medium text-zinc-300 flex gap-1 items-center">
+                          <Sparkles className="h-3 w-3 text-indigo-300" />
+                          Tone
+                        </label>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {tones.map((tone) => (
+                            <Button
+                              key={tone}
+                              type="button"
+                              variant="ghost"
+                              className={`rounded-full border px-3 py-1.5 text-xs min-w-0 h-auto transition-all duration-200 ${tone === "Storytelling"
+                                ? "border-indigo-400 bg-indigo-400/15 text-indigo-100 shadow-[0_0_8px_1px_rgba(129,140,248,.09)]"
+                                : "border-zinc-700/80 bg-zinc-900 text-zinc-200 hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-indigo-100"
+                                }`}
+                            >
+                              {tone}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Length Selection */}
+                    <div className="space-y-1.5 text-xs">
+                      <label className="font-medium text-zinc-300 flex gap-1 items-center">
+                        <span role="img" aria-label="Lines">〰️</span>
+                        Length
+                      </label>
+                      <div className="flex gap-2 mt-1">
+                        {lengths.map((length) => (
+                          <Button
+                            key={length}
+                            type="button"
+                            variant="ghost"
+                            className={`flex-1 rounded-full border px-3 py-1.5 min-w-0 h-auto transition-all duration-200 ${length === "Medium"
+                              ? "border-emerald-400 bg-emerald-400/15 text-emerald-100 shadow-[0_0_8px_1px_rgba(52,211,153,.08)]"
+                              : "border-zinc-700/80 bg-zinc-900 text-zinc-200 hover:border-emerald-400 hover:bg-emerald-100/5 hover:text-emerald-100"
+                              }`}
+                          >
+                            {length}
+                          </Button>
+                        ))}
+                      </div>
                     </div>
                   </div>
-
-                  <Button className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-xs font-semibold text-black shadow-[0_0_10px_1px_rgba(56,189,248,0.15)] hover:bg-sky-400">
+                  <Button className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-300 px-3 py-2.5 text-sm font-semibold text-zinc-900 shadow-[0_4px_24px_0_rgba(56,189,248,.10)] hover:from-sky-400 hover:via-indigo-300 hover:to-green-200 transition-all duration-150">
+                    <Zap className="h-5 w-5 animate-pulse text-black" />
                     Generate optimized post
-                    <Zap className="h-3.5 w-3.5" />
                   </Button>
                 </div>
 
                 {/* Right Panel */}
-                <div className="space-y-2 rounded-xl border border-zinc-800 bg-zinc-950/80 p-3 text-xs">
-
+                <div className="flex flex-col h-full space-y-3 rounded-xl border border-sky-800 bg-zinc-950/90 p-4 text-sm shadow-lg relative z-10">
                   <div className="mb-1 flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-[11px] font-medium text-zinc-300">
-                      <Sparkles className="h-3 w-3 text-sky-400" />
+                    <span className="flex items-center gap-1.5 font-medium text-sky-300 text-xs">
+                      <Sparkles className="h-4 w-4 animate-twinkle" />
                       AI Output Preview
                     </span>
-
-                    <span className="rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] text-zinc-500">
+                    <span className="rounded-full border border-indigo-600/20 bg-zinc-900/70 px-2 py-0.5 text-[11px] text-sky-400 font-medium">
                       LinkedIn • Storytelling • Medium
                     </span>
                   </div>
 
-                  <div className="space-y-2 rounded-lg bg-zinc-900/70 p-3 text-[11px] leading-relaxed text-zinc-200">
-                    <p className="font-medium text-zinc-100">
+                  <div className="space-y-2 rounded-lg bg-gradient-to-tl from-zinc-900/90 via-zinc-800/90 to-sky-950/80 p-4 text-sm leading-relaxed text-zinc-200 border border-zinc-800/60 shadow-inner relative overflow-hidden">
+                    <span className="absolute top-2 right-2 opacity-80">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full border border-zinc-700/50 bg-zinc-800/60 text-sky-300 hover:bg-sky-500/15 hover:border-sky-400 hover:text-sky-200"
+                        tabIndex={-1}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <title>Copy</title>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16h8M8 12h8m-7 8V3m6 13V3a2 2 0 00-2-2h-4a2 2 0 00-2 2v16a2 2 0 002 2h4a2 2 0 002-2v-1" />
+                        </svg>
+                      </Button>
+                    </span>
+                    <p className="font-semibold text-white text-base">
                       From late-night commits to launch day nerves 🚀
                     </p>
-
                     <p>
-                      For the past few months I&apos;ve been quietly building an
-                      AI copilot for social media — a way to turn messy notes and
-                      half-baked ideas into clear, platform-ready posts in
-                      seconds.
+                      For the past few months I&apos;ve been quietly building an AI copilot for social media — a way to turn messy notes and half-baked ideas into clear, platform-ready posts in seconds.
                     </p>
-
                     <p>
                       We&apos;re finally opening the beta for{" "}
-                      <span className="font-medium text-sky-300">Capto AI</span>.
-                      If you&apos;re a builder, creator, or dev who wants to ship
-                      more content without living in a blank editor, I&apos;d love
-                      for you to try it.
+                      <span className="font-semibold text-sky-300">Capto AI</span>.
+                      If you&apos;re a builder, creator, or dev who wants to ship more content without living in a blank editor, I&apos;d love for you to try it.
                     </p>
-
                     <p className="text-zinc-400">
-                      Comment &quot;CAPTO&quot; or send me a DM — I&apos;ll share
-                      an early access link. ⚡
+                      Comment &quot;CAPTO&quot; or send me a DM — I&apos;ll share an early access link. ⚡
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-1 text-[10px] text-zinc-500">
-                    <span>Optimized for reach & clarity</span>
-                    <span>Gemini • 3.2ms draft time</span>
+                  <div className="flex items-center justify-between pt-2 text-[11px] text-zinc-500">
+                    <span className="flex items-center gap-1"><Sparkles className="h-3 w-3 text-sky-400" />Optimized for reach & clarity</span>
+                    <span className="">Gemini • 3.2ms draft time</span>
                   </div>
-
                 </div>
               </CardContent>
             </Card>
